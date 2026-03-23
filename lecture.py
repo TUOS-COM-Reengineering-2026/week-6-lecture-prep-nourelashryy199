@@ -1,5 +1,5 @@
 # PART 1
-def is_palindrome(s):
+"""def is_palindrome(s):
     # Check if a string is a palindrome or not.
     # To make it simple, let's assume that an empty string is a palindrome.
 
@@ -8,7 +8,24 @@ def is_palindrome(s):
     elif s[0] != s[-1]:
         return False  # base case 2
     else:
-        return is_palindrome(s[1:-1]) # recursive case
+        return is_palindrome(s[1:-1]) # recursive case"""
+def is_palindrome(s):
+    # Check if a string reads the same forwards and backwards.
+    # An empty string or a one-letter string counts as a palindrome.
+
+    left = 0
+    right = len(s) - 1
+
+    # Keep comparing the character from the start with the character from the end.
+    # If they are ever different, then it is not a palindrome.
+    while left < right:
+        if s[left] != s[right]:
+            return False
+        left += 1
+        right -= 1
+
+    # If we finish the loop without finding a mismatch, then it is a palindrome.
+    return True
 
     # TODO: test_palindrome_long() will trigger RecursionError. Can you fix it by rewriting the above code?
     # HINT: You can use a loop to replace the recursive call.
